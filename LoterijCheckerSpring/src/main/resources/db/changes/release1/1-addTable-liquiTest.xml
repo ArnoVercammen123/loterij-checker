@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                           logicalFilePath="./release1/1-addTable-liquiTest">
+    <changeSet dbms="postgresql" author="arno" id="addTable-liquiTest">
+
+        <createTable tableName="liqui_test">
+            <column type="serial" name="id">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column type="varchar(50)" name="title"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

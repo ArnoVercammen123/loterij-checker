@@ -1,4 +1,4 @@
-package com.arnovercammen.loterijcheckerspring.hello;
+package com.arnovercammen.loterijcheckerspring.api;
 
 public class ResponseWrapper {
 

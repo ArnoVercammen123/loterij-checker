@@ -8,10 +8,6 @@ task build {
     dependsOn 'LoterijCheckerSpring:build'
 }
 
-task test {
-    dependsOn 'LoterijCheckerSpring:test'
-}
-
 task run {
     dependsOn 'LoterijCheckerSpring:bootRun'
     dependsOn 'LoterijCheckerAngular:npmStart'

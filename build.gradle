@@ -14,7 +14,7 @@ task run {
 }
 
 task copyAngularToSpring(type: Copy) {
-    from 'LoterijCheckerAngular/dist/GitHubTalkersAngular'
+    from 'LoterijCheckerAngular/dist/LoterijCheckerAngular'
     into 'LoterijCheckerSpring/src/main/resources/public'
 }
 

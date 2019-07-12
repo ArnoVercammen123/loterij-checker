@@ -1,0 +1,34 @@
+<div class="">
+<app-lotto-trekking-form (getLottoProfits)="getLottoProfits($event)"></app-lotto-trekking-form>
+<table class="w-75 table ml-1">
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th>winnings</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let rooster of roosters">
+    <td *ngFor="let number of rooster.numbers">
+      {{number}}
+    </td>
+    <td *ngIf="rooster.winnings>0" class="table-success">
+      € {{rooster.winnings}}
+    </td>
+    <td *ngIf="rooster.winnings<=0">
+      € {{rooster.winnings}}
+    </td>
+    <td>
+      <button (click)="deleteRooster(rooster)" class="btn btn-danger">X</button>
+    </td>
+  </tr>
+</table>
+
+
+<app-lotto-rooster-form (getRoosters)="getRoosters()"></app-lotto-rooster-form>
+</div>
+
+

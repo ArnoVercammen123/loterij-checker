@@ -1,0 +1,39 @@
+<form [formGroup]="trekkingForm" class="mb-2 mt-5">
+  <div formArrayName="winstVerdeling">
+    <table  class="">
+      <tr>
+        <td *ngFor="let n of winstVerdeling.controls; let i=index">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" >{{keys[i]}}</span>
+            </div>
+            <input type="text" class="form-control" [formControlName]="i">
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div formArrayName="winningNumbers">
+    <table  class="">
+      <tr>
+        <td *ngFor="let n of winningNumbers.controls; let i=index">
+          <input type="text" [formControlName]="i">
+        </td>
+        <td>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" >Extra</span>
+            </div>
+            <input type="text" class="form-control" [formControl]="extraNumber">
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+
+  <br>
+    <button class="btn btn-primary" (click)="checkProfits()">check!</button>
+
+</form>

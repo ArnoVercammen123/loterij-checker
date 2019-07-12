@@ -5,9 +5,7 @@ import com.arnovercammen.loterijcheckerspring.model.LottoRoosterDb;
 import com.arnovercammen.loterijcheckerspring.model.Trekking;
 import com.arnovercammen.loterijcheckerspring.repositories.LottoRoosterRepository;
 import org.json.JSONArray;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import sun.rmi.server.LoaderHandler;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,10 +13,11 @@ import java.util.HashMap;
 @Component
 public class LottoService {
 
-    @Autowired
+
     private LottoRoosterRepository lottoRoosterRepository;
 
     private HashMap<Integer,String> intToString;
+    /*
     public LottoService(){
         intToString = new HashMap<>();
         intToString.put(11, "1+1");
@@ -31,6 +30,23 @@ public class LottoService {
         intToString.put(15, "5+");
         intToString.put(6, "6");
     }
+
+     */
+
+    public LottoService(LottoRoosterRepository lottoRoosterRepository1){
+        lottoRoosterRepository = lottoRoosterRepository1;
+        intToString = new HashMap<>();
+        intToString.put(11, "1+1");
+        intToString.put(12, "2+");
+        intToString.put(3, "3");
+        intToString.put(13, "3+");
+        intToString.put(4, "4");
+        intToString.put(14, "4+");
+        intToString.put(5, "5");
+        intToString.put(15, "5+");
+        intToString.put(6, "6");
+    }
+
     public void addRooster(LottoRooster lottoRooster){
         if(lottoRooster.getNumbers().size()>= 6){
             JSONArray jsonArray = new JSONArray(lottoRooster.getNumbers());
@@ -64,8 +80,8 @@ public class LottoService {
             }
         }
         if(numbersCorrect > 0){
-            for(int trekkingNumber : lottoRooster.getNumbers()){
-                if(trekkingNumber == trekking.getExtraNumber()){
+            for(int number : lottoRooster.getNumbers()){
+                if(number == trekking.getExtraNumber()){
                     numbersCorrect = numbersCorrect + 10;
                 }
             }
@@ -87,4 +103,7 @@ public class LottoService {
     }
 
 
+    public void deleteRooster(String id) {
+        lottoRoosterRepository.delete(new LottoRoosterDb(Integer.valueOf(id)));
+    }
 }

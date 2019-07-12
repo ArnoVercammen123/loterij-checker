@@ -23,6 +23,9 @@ public class LottoRoosterDb {
     public LottoRoosterDb(String numbers){
         this.numbers = numbers;
     }
+    public LottoRoosterDb(Integer id){
+        this.id = id;
+    }
     public LottoRoosterDb(Integer id, String numbers){
         this.id = id;
         this.numbers = numbers;

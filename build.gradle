@@ -1,3 +1,27 @@
 group 'com.arnovercammen'
 version '1.0-SNAPSHOT'
 
+task build {
+    dependsOn 'LoterijCheckerSpring:clean'
+    dependsOn 'LoterijCheckerAngular:npmBuild'
+    dependsOn 'copyAngularToSpring'
+    dependsOn 'LoterijCheckerSpring:build'
+}
+
+task test {
+    dependsOn 'LoterijCheckerSpring:test'
+}
+
+task run {
+    dependsOn 'LoterijCheckerSpring:bootRun'
+    dependsOn 'LoterijCheckerAngular:npmStart'
+}
+
+task copyAngularToSpring(type: Copy) {
+    from 'LoterijCheckerAngular/dist/GitHubTalkersAngular'
+    into 'LoterijCheckerSpring/src/main/resources/public'
+}
+
+copyAngularToSpring.mustRunAfter 'LoterijCheckerAngular:npmBuild'
+project.tasks.findByPath(':LoterijCheckerSpring:build').mustRunAfter copyAngularToSpring
+project.tasks.findByPath(':LoterijCheckerSpring:build').mustRunAfter project.tasks.findByPath(':LoterijCheckerSpring:clean')

@@ -1,0 +1,19 @@
+plugins {
+  id 'java'
+  id "com.moowork.node" version "1.2.0"
+}
+node {
+  version = '10.16.0'
+  npmVersion = '4.6.1'
+  download = true
+}
+
+task npmBuild(type: NpmTask) {
+  dependsOn(npmInstall)
+  args = ['run', 'build']
+}
+
+task npmStart(type: NpmTask) {
+  dependsOn(npmBuild)
+  args = ['run', 'start']
+}

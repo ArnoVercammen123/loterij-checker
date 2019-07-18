@@ -46,7 +46,6 @@ public class LottoServiceTest {
         ArrayList<LottoRoosterDb> lottoRoosters = new ArrayList<>();
 
         // WINNING NUMBERS: 1 2 3 4 5 6 extra number: 12
-
         lottoRoosters.add(new LottoRoosterDb(1,"[1,2,3,4,5,6]")); // 1000000.0
         lottoRoosters.add(new LottoRoosterDb(2,"[1,2,3,4,5,12]")); // 500000.51
         lottoRoosters.add(new LottoRoosterDb(3,"[1,2,3,4,5,13]")); // 200000.11

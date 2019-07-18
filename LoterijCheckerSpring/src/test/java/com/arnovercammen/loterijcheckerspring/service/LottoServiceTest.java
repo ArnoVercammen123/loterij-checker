@@ -37,9 +37,6 @@ public class LottoServiceTest {
         winningNumbers.add(6);
 
         HashMap<String,Double> winstVerdeling = new HashMap<>();
-        winstVerdeling.put("1+1", 10.11);
-        winstVerdeling.put("2+", 50.11);
-        winstVerdeling.put("3", 1000.11);
         winstVerdeling.put("3+", 5000.55);
         winstVerdeling.put("4", 10000.21);
         winstVerdeling.put("4+", 100000.22);
@@ -81,11 +78,11 @@ public class LottoServiceTest {
         //3+
         assertThat(lottoService.checkProfits(trekking).get(5).getWinnings()).isEqualTo(5000.55);
         //3
-        assertThat(lottoService.checkProfits(trekking).get(6).getWinnings()).isEqualTo(1000.11);
+        assertThat(lottoService.checkProfits(trekking).get(6).getWinnings()).isEqualTo(6.25);
         //2+
-        assertThat(lottoService.checkProfits(trekking).get(7).getWinnings()).isEqualTo(50.11);
+        assertThat(lottoService.checkProfits(trekking).get(7).getWinnings()).isEqualTo(3.75);
         //1 + 1
-        assertThat(lottoService.checkProfits(trekking).get(8).getWinnings()).isEqualTo(10.11);
+        assertThat(lottoService.checkProfits(trekking).get(8).getWinnings()).isEqualTo(1.25);
         // 0
         assertThat(lottoService.checkProfits(trekking).get(9).getWinnings()).isEqualTo(0.0);
         // 0

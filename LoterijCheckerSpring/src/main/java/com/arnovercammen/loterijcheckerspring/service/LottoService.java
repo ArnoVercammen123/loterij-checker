@@ -63,6 +63,10 @@ public class LottoService {
     }
 
     public ArrayList<LottoRooster> checkProfits(Trekking trekking){
+        trekking.getWinstVerdeling().put("1+1", 1.25);
+        trekking.getWinstVerdeling().put("2+", 3.75);
+        trekking.getWinstVerdeling().put("3", 6.25);
+
         ArrayList<LottoRooster> result = new ArrayList<LottoRooster>();
         for(LottoRooster lottoRooster : getRoosters()){
             result.add(this.checkRooster(trekking,lottoRooster));
@@ -87,6 +91,7 @@ public class LottoService {
             }
             if(numbersCorrect > 2) {
                 lottoRooster.setWinnings(trekking.getWinstVerdeling().get(intToString.get(numbersCorrect)));
+                lottoRooster.setRang(intToString.get(numbersCorrect));
             }
         }
 

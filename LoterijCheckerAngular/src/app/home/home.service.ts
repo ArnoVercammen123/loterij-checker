@@ -38,7 +38,7 @@ export class HomeService {
     let wv = '';
     let j = 0;
     for(let entry of trekking.winstVerdeling.entries()){
-      if(j == 8){
+      if(j == 5){
         wv = wv + '"' + entry[0] + '":' + entry[1];
       }else {
         wv = wv + '"' + entry[0] + '":' + entry[1] + ',';

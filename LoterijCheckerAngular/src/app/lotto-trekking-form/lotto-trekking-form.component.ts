@@ -36,9 +36,6 @@ export class LottoTrekkingFormComponent implements OnInit {
     this.winstVerdeling.push(this.fb.control('0'));
     this.winstVerdeling.push(this.fb.control('0'));
     this.winstVerdeling.push(this.fb.control('0'));
-    this.winstVerdeling.push(this.fb.control('0'));
-    this.winstVerdeling.push(this.fb.control('0'));
-    this.winstVerdeling.push(this.fb.control('0'));
     this.winningNumbers.clear();
     this.winningNumbers.push(this.fb.control('0'));
     this.winningNumbers.push(this.fb.control('0'));

@@ -8,22 +8,40 @@
     <th></th>
     <th></th>
     <th></th>
-    <th>winnings</th>
+    <th class="text-center">Rang</th>
+    <th>Winnings</th>
     <th></th>
   </tr>
   <tr *ngFor="let rooster of roosters">
     <td *ngFor="let number of rooster.numbers">
-      {{number}}
+      <p *ngIf="checkNumber(number)" class="bg-success text-center text-white">{{number}}</p>
+      <p *ngIf="checkExtraNumber(number)" class="bg-warning text-center text-white">{{number}}</p>
+      <p *ngIf="!checkNumber(number)&&!checkExtraNumber(number)" class="text-center">{{number}}</p>
+
+
     </td>
-    <td *ngIf="rooster.winnings>0" class="table-success">
+    <td class="text-center">{{rooster.rang}}</td>
+    <td *ngIf="rooster.winnings>0; else noWinnings" class="table-success">
       € {{rooster.winnings}}
     </td>
-    <td *ngIf="rooster.winnings<=0">
-      € {{rooster.winnings}}
-    </td>
+    <ng-template #noWinnings>
+      <td>€ {{rooster.winnings}}</td>
+
+    </ng-template>
     <td>
       <button (click)="deleteRooster(rooster)" class="btn btn-danger">X</button>
     </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>€ {{totalProfit}}</td>
+    <td></td>
   </tr>
 </table>
 

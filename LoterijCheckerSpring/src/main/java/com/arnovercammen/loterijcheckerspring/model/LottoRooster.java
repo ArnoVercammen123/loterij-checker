@@ -9,6 +9,8 @@ public class LottoRooster {
     private ArrayList<Integer> numbers;
 
     private double winnings;
+
+    private String rang;
     public LottoRooster(ArrayList<Integer> numbers){
         this.numbers = numbers;
 
@@ -41,5 +43,13 @@ public class LottoRooster {
 
     public void setWinnings(double winnings) {
         this.winnings = winnings;
+    }
+
+    public String getRang() {
+        return rang;
+    }
+
+    public void setRang(String rang) {
+        this.rang = rang;
     }
 }

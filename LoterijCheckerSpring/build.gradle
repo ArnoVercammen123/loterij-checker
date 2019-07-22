@@ -28,7 +28,7 @@ dependencies {
     compile 'org.postgresql:postgresql'
     compile 'org.liquibase:liquibase-core'
     compile("org.json:json:20160810")
-
+    compile("org.springframework.boot:spring-boot-starter-security")
     compile('org.springframework.boot:spring-boot-starter-jdbc')
     testCompile("junit:junit")
     testCompile("org.springframework.boot:spring-boot-starter-test")

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {HomeService} from "./home.service";
 import {LottoRooster} from "./lottoRooster";
 import {Trekking} from "./trekking";
+import {AppService} from "../app.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -13,10 +15,11 @@ export class HomeComponent implements OnInit {
   roosters: LottoRooster[];
   trekking: Trekking;
   totalProfit: number;
-  constructor(private homeService: HomeService) {
+  constructor(private homeService: HomeService, private app: AppService, private router: Router) {
    this.getRoosters();
     this.trekking = new Trekking();
     this.totalProfit = 0;
+
   }
 
   ngOnInit() {

@@ -1,7 +1,6 @@
 <form [formGroup]="trekkingForm" class="mt-5 mb-3">
   <div class="row">
   <div formArrayName="winningNumbers" class="col-4">
-
     <div  class="row justify-content-md-center">
       <div class="col-1 p-0 ml-1" *ngFor="let n of winningNumbers.controls; let i=index">
           <input  type="text" class="text-center w-100" [formControlName]="i">
@@ -9,26 +8,26 @@
       <div class="col-1 p-0 ml-4">
           <input type="text"  class="bg-warning text-white w-100 text-center" [formControl]="extraNumber">
       </div>
-
     </div>
   </div>
   <div formArrayName="winstVerdeling" class="col-8">
-
-      <div class="row justify-content-md-center">
-        <div *ngFor="let n of winstVerdeling.controls; let i=index">
-          <div *ngIf="i == 3" class="w-100"></div>
-          <div class="col-md-auto">
-          <div class="input-group w-auto">
-            <div class="input-group-prepend">
-              <span class="input-group-text" >{{keys[i]}}</span>
+    <div class="row justify-content-md-center">
+      <div *ngFor="let n of winstVerdeling.controls; let i=index">
+        <div *ngIf="i == 3" class="w-100"></div>
+          <div class="col mb-2">
+            <div class="input-group w-auto">
+              <div class="input-group-prepend">
+                <span class="input-group-text" >{{keys[i]}}</span>
+              </div>
+              <input type="text" class="form-control" [formControlName]="i">
             </div>
-            <input type="text" class="form-control" [formControlName]="i">
           </div>
-          </div>
-        </div>
       </div>
-      </div>
-
+    </div>
   </div>
-  <button class="btn btn-primary ml-5" (click)="checkProfits()">check!</button>
+    <div class="col-1 mt-3 ml-2">
+      <button class="btn btn-primary" (click)="checkProfits()">check!</button>
+    </div>
+  </div>
+
 </form>

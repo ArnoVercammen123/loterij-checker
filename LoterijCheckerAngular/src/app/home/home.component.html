@@ -1,6 +1,6 @@
 <div class="">
 <app-lotto-trekking-form (getLottoProfits)="getLottoProfits($event)"></app-lotto-trekking-form>
-<table class="w-100 table ml-1">
+<table class="w-100 table">
   <tr>
     <th></th>
     <th></th>
@@ -9,7 +9,7 @@
     <th></th>
     <th></th>
     <th class="text-center">Rang</th>
-    <th>Winnings</th>
+    <th class="text-center">Winnings</th>
     <th></th>
   </tr>
   <tr *ngFor="let rooster of roosters">
@@ -21,14 +21,14 @@
 
     </td>
     <td class="text-center">{{rooster.rang}}</td>
-    <td *ngIf="rooster.winnings>0; else noWinnings" class="table-success">
+    <td *ngIf="rooster.winnings>0; else noWinnings" class="table-success text-center">
       € {{rooster.winnings}}
     </td>
     <ng-template #noWinnings>
-      <td>€ {{rooster.winnings}}</td>
+      <td class="text-center">€ {{rooster.winnings}}</td>
 
     </ng-template>
-    <td>
+    <td class="text-center">
       <button (click)="deleteRooster(rooster)" class="btn btn-danger">X</button>
     </td>
   </tr>
@@ -40,7 +40,7 @@
     <td></td>
     <td></td>
     <td></td>
-    <td>€ {{totalProfit}}</td>
+    <td class="text-center">€ {{totalProfit}}</td>
     <td></td>
   </tr>
 </table>

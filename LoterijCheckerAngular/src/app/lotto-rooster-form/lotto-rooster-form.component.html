@@ -1,7 +1,7 @@
 
   <form [formGroup]="roosterForm">
     <div formArrayName="numbers">
-      <table  class="w-75">
+      <table  class="w-50">
       <tr>
       <td *ngFor="let number of numbers.controls; let i=index">
           <input type="text" [formControlName]="i">

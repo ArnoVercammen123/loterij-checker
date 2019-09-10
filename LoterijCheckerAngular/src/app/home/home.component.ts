@@ -16,18 +16,20 @@ export class HomeComponent implements OnInit {
   trekking: Trekking;
   totalProfit: number;
   constructor(private homeService: HomeService, private app: AppService, private router: Router) {
-   this.getRoosters();
+    this.getRoosters();
     this.trekking = new Trekking();
     this.totalProfit = 0;
-
+    this.app.authenticate(undefined, undefined);
+    if(!this.app.authenticated){router.navigateByUrl('/login')};
   }
 
   ngOnInit() {
   }
 
   getRoosters(){
-    this.homeService.getLottoRooster().subscribe(roosters => {this.roosters = roosters; this.totalProfit = 0;this.trekking = new Trekking();});
-
+    this.homeService.getLottoRooster().subscribe(
+      roosters => {this.roosters = roosters; this.totalProfit = 0;this.trekking = new Trekking();}
+      );
   }
 
   getLottoProfits(trekking: Trekking){
@@ -52,7 +54,7 @@ export class HomeComponent implements OnInit {
     }
     return isInTrekking;
 }
-checkExtraNumber(n:number):any{
+checkExtraNumber(n:number): any{
   let isInTrekking = false;
   if(this.trekking.numbers.length != 0){
     if(n == this.trekking.extraNumber){

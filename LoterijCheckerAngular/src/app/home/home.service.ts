@@ -25,7 +25,6 @@ export class HomeService {
     return this.http.get<LottoRooster[]>(this.lottoRoostersUrl);
   }
   addLottoRooster(rooster: LottoRoosterForm) : Observable<LottoRoosterForm>{
-    console.log('post lotto rooster');
     return this.http.post<LottoRoosterForm>(this.lottoRoostersUrl, rooster, httpOptions);
   }
   deleteLottoRooster(rooster: LottoRooster) : Observable<LottoRoosterForm>{

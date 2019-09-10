@@ -24,7 +24,8 @@ export class XhrInterceptor implements HttpInterceptor {
 const appRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {path: 'home', component: HomeComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  {path: 'error', redirectTo:'login', pathMatch:'full'}
 ];
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ const appRoutes: Routes = [
     BrowserModule,HttpClientModule,FormsModule,ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes,
-      {enableTracing: true}
+      {useHash: true}
     )
   ],
   providers: [AppComponent, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],

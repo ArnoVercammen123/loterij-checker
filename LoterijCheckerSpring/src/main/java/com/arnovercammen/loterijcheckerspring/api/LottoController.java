@@ -37,20 +37,4 @@ public class LottoController {
     public List<LottoRooster> trekking(@RequestBody Trekking trekking){
         return lottoService.checkProfits(trekking);
     }
-
-    @GetMapping("/trek")
-    public Trekking trek(){
-        ArrayList<Integer> ar = new ArrayList<>();
-        ar.add(1);
-        ar.add(2);
-        ar.add(3);
-        ar.add(4);
-        ar.add(5);
-        ar.add(6);
-        return new Trekking(ar,9);
-    }
-
-
-
-
 }

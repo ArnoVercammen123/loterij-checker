@@ -17,21 +17,6 @@ public class LottoService {
     private LottoRoosterRepository lottoRoosterRepository;
 
     private HashMap<Integer,String> intToString;
-    /*
-    public LottoService(){
-        intToString = new HashMap<>();
-        intToString.put(11, "1+1");
-        intToString.put(12, "2+");
-        intToString.put(3, "3");
-        intToString.put(13, "3+");
-        intToString.put(4, "4");
-        intToString.put(14, "4+");
-        intToString.put(5, "5");
-        intToString.put(15, "5+");
-        intToString.put(6, "6");
-    }
-
-     */
 
     public LottoService(LottoRoosterRepository lottoRoosterRepository1){
         lottoRoosterRepository = lottoRoosterRepository1;
@@ -49,8 +34,7 @@ public class LottoService {
 
     public void addRooster(LottoRooster lottoRooster){
         if(lottoRooster.getNumbers().size()>= 6){
-            JSONArray jsonArray = new JSONArray(lottoRooster.getNumbers());
-            lottoRoosterRepository.save(new LottoRoosterDb(lottoRooster.getId(),jsonArray.toString()));
+            lottoRoosterRepository.save(new LottoRoosterDb(lottoRooster.getId(),new JSONArray(lottoRooster.getNumbers()).toString()));
         }else{
             System.out.println("ALERT!: tried to add rooster with less then 6 numbers.");
         }
